@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ariel's Creative Updates</title>
+    <style>
+        /* Reset styles for email clients */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        /* SparkLabs color palette */
+        :root {
+            --color-white: #f5f7e9;
+            --color-black: #27181f;
+            --color-dragonfruit: #ec5999;
+            --color-fire: #ff595e;
+            --color-mandarin: #f7802b;
+            --color-gold: #ffca3a;
+            --color-leaf: #8ac926;
+            --color-aqua: #1aa5c4;
+            --color-sky: #21a9f5;
+            --color-plum: #7f5fad;
+            --color-flint: #aaa;
+            --color-cinder: #555;
+        }
+        
+        body { 
+            font-family: ui-sans-serif, system-ui, sans-serif; 
+            line-height: 1.6; 
+            color: var(--color-black); 
+            background-color: #f9f9f9; 
+        }
+        .container { 
+            max-width: 600px; 
+            margin: 0 auto; 
+            background-color: var(--color-white); 
+        }
+        .header { 
+            padding: 2rem 2rem 1rem; 
+            border-bottom: 2px dotted var(--color-gold); 
+        }
+        .content { 
+            padding: 2rem; 
+        }
+        .footer { 
+            padding: 1rem 2rem; 
+            background-color: var(--color-black); 
+            color: var(--color-white); 
+            font-size: 0.875rem; 
+        }
+        
+        /* SparkLabs typography */
+        h1 {
+            font-weight: 100;
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            color: var(--color-black);
+            margin-bottom: 0.5rem;
+        }
+        h2 {
+            font-weight: 100;
+            font-size: 2rem;
+            text-transform: uppercase;
+            color: var(--color-black);
+            margin-bottom: 1rem;
+        }
+        h3 {
+            font-weight: bold;
+            text-transform: uppercase;
+            color: var(--color-plum);
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+        
+        .personal-note { 
+            background-color: var(--color-dragonfruit); 
+            color: var(--color-white);
+            padding: 1.5rem; 
+            margin-bottom: 2rem; 
+            border-radius: 4px;
+            font-weight: 600;
+        }
+        .section { 
+            margin-bottom: 2rem; 
+        }
+        .section p { 
+            margin-bottom: 1.25rem; 
+        }
+        
+        /* SparkLabs link styling */
+        a {
+            color: var(--color-aqua);
+            text-decoration: underline;
+            text-decoration-style: dotted;
+            text-decoration-color: var(--color-leaf);
+        }
+        a:hover {
+            text-decoration-style: wavy;
+            text-decoration-color: var(--color-dragonfruit);
+        }
+        
+        .highlight { 
+            color: var(--color-fire); 
+            font-weight: 600; 
+        }
+        .cta { 
+            display: inline-block; 
+            background-color: var(--color-leaf); 
+            color: var(--color-white); 
+            padding: 0.75rem 1.5rem; 
+            text-decoration: none; 
+            border-radius: 4px; 
+            margin: 1rem 0; 
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            border: 1px solid var(--color-black);
+        }
+        .cta:hover { 
+            background-color: var(--color-aqua); 
+        }
+        
+        /* Dividers */
+        hr {
+            border: none;
+            border-bottom: 2px dotted var(--color-gold);
+            margin: 2rem 0;
+        }
+        /* Image styles with SparkLabs flair */
+        .image-section { 
+            margin: 2rem 0; 
+            text-align: center; 
+        }
+        .image-section img { 
+            max-width: 100%; 
+            height: auto; 
+            border-radius: 4px; 
+            display: block; 
+            margin: 0 auto;
+            border: 3px solid var(--color-mandarin);
+        }
+        .image-caption { 
+            font-size: 0.875rem; 
+            color: var(--color-cinder); 
+            margin-top: 0.5rem; 
+            font-style: italic; 
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+        .image-inline { max-width: 200px; height: auto; border-radius: 4px; margin: 0 1rem 1rem 0; float: left; }
+        .image-grid { display: table; width: 100%; margin: 1rem 0; }
+        .image-grid-item { display: table-cell; width: 50%; padding: 0 0.5rem; vertical-align: top; }
+        .image-grid-item img { width: 100%; height: auto; border-radius: 4px; }
+        
+        .color-block {
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+        .color-block.fire { background-color: var(--color-fire); color: var(--color-white); }
+        .color-block.gold { background-color: var(--color-gold); color: var(--color-black); }
+        .color-block.sky { background-color: var(--color-sky); color: var(--color-white); }
+        @media (max-width: 600px) {
+            .container { width: 100%; }
+            .header, .content, .footer { padding: 1rem; }
+            .personal-note { padding: 1rem; }
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.5rem; }
+            .image-inline { float: none; display: block; margin: 1rem auto; max-width: 100%; }
+            .image-grid-item { display: block; width: 100%; padding: 0.25rem 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>Ariel's Creative Updates</h1>
+            <p style="color: var(--color-cinder); margin-top: 0.5rem; text-transform: uppercase; letter-spacing: 0.1em;">January 2025 • Issue 1</p>
+        </header>
+
+        <!-- Main Content -->
+        <main class="content">
+            <!-- Personal Note Section (Optional) -->
+            <div class="personal-note">
+                <h3 style="color: var(--color-white); margin-top: 0;">Personal Note</h3>
+                <p style="margin-bottom: 0;"><p>Happy New Year! Starting this creative newsletter to share my journey in design, technology, and innovation. Ready to make 2025 a year of meaningful connections and exciting projects!</p></p>
+            </div>
+
+            <hr>
+
+            <!-- Main Content Sections -->
+            <section class="section">
+                <h2>Recent Projects</h2>
+                <p><p>I've been exploring the intersection of <strong>interactive design</strong> and emerging technologies. My latest work focuses on creating more intuitive and playful user experiences that bridge digital and physical interactions.</p>
+<p><img alt="SparkLabs Discover Cover" src="https://arielchuri.sparklelabs.com/images/sparklelabs/discovercover.jpg" title="My latest project exploring creative technology" /></p>
+<p>Currently developing an AI-powered creative tool that helps designers explore new visual possibilities through collaborative human-machine interaction.</p></p>
+                <!-- Optional image for section 1 -->
+                <!-- <div class="image-section">
+                    <img src="{{SECTION_1_IMAGE_URL}}" alt="{{SECTION_1_IMAGE_ALT}}" />
+                    <p class="image-caption">{{SECTION_1_IMAGE_CAPTION}}</p>
+                </div> -->
+            </section>
+
+            <section class="section">
+                <h2>Learning &amp; Growth</h2>
+                <p><p>Currently diving deep into <strong>creative technologist</strong> practices, exploring how code can be a medium for artistic expression and how design thinking can solve complex technical challenges.</p>
+<p>My focus areas include prototyping with new web technologies, studying generative design systems, and building tools that empower other creators.</p></p>
+                <!-- Optional image for section 2 -->
+                <!-- <div class="image-section">
+                    <img src="{{SECTION_2_IMAGE_URL}}" alt="{{SECTION_2_IMAGE_ALT}}" />
+                    <p class="image-caption">{{SECTION_2_IMAGE_CAPTION}}</p>
+                </div> -->
+            </section>
+
+            <section class="section">
+                <h2>What I'm Seeking</h2>
+                <p><p>I'm actively looking for opportunities in <strong>creative technology, UX innovation, or product design</strong> roles where I can contribute to meaningful, human-centered projects.</p>
+<p>Interested in projects that push boundaries, challenge assumptions, and create positive impact through thoughtful design and technology.</p></p>
+                <!-- Optional image for section 3 -->
+                <!-- <div class="image-section">
+                    <img src="{{SECTION_3_IMAGE_URL}}" alt="{{SECTION_3_IMAGE_ALT}}" />
+                    <p class="image-caption">{{SECTION_3_IMAGE_CAPTION}}</p>
+                </div> -->
+            </section>
+
+            <hr>
+
+            <!-- Optional featured image section -->
+            <!-- <div class="image-section">
+                <img src="{{FEATURED_IMAGE_URL}}" alt="{{FEATURED_IMAGE_ALT}}" />
+                <p class="image-caption">{{FEATURED_IMAGE_CAPTION}}</p>
+            </div> -->
+
+            <!-- Optional image grid for multiple images -->
+            <!-- <div class="image-grid">
+                <div class="image-grid-item">
+                    <img src="{{GRID_IMAGE_1_URL}}" alt="{{GRID_IMAGE_1_ALT}}" />
+                    <p class="image-caption">{{GRID_IMAGE_1_CAPTION}}</p>
+                </div>
+                <div class="image-grid-item">
+                    <img src="{{GRID_IMAGE_2_URL}}" alt="{{GRID_IMAGE_2_ALT}}" />
+                    <p class="image-caption">{{GRID_IMAGE_2_CAPTION}}</p>
+                </div>
+            </div> -->
+
+            <!-- Call to Action -->
+            <div style="text-align: center; margin: 2rem 0;">
+                <a href="mailto:ariel@sparklelabs.com" class="cta">Connect & Create</a>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p><strong>Ariel Churi</strong></p>
+            <p>Creative Technologist & Design Innovator</p>
+            <p style="margin-top: 1rem;">
+                <a href="https://arielchuri.sparklelabs.com" style="color: var(--color-white); text-decoration: underline; text-decoration-style: dotted;">Portfolio</a> • 
+                <a href="https://linkedin.com/in/arielchuri" style="color: var(--color-white); text-decoration: underline; text-decoration-style: dotted;">LinkedIn</a> • 
+                <a href="mailto:arielnews@sparklelabs.com?subject=Unsubscribe&body=Please unsubscribe subscriber@example.com from this newsletter." style="color: var(--color-flint); text-decoration: underline; text-decoration-style: dotted;">Unsubscribe</a>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
