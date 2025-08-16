@@ -4,6 +4,8 @@ Two Python scripts for creating colorful, rainbow computer-styled HTML emails fr
 Markdown is converted to colorful HTML for insertion into eMails.
 As each eMail is created, you can add a personalized message.
 
+![Rainbow Email Example](Screenshot_20250816.png)
+
 On Linux, Thunderbird can send each one automatically.
 Fork this repository and have AI walk you through adapting it to your operating system.
 
