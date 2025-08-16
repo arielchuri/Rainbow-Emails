@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-Retro Email Generator
-Converts markdown to retro computer-styled HTML and copies to clipboard
-Usage: python3 retro_email.py [top_content]
+Rainbow Email Generator
+Converts markdown to rainbow computer-styled HTML and copies to clipboard
+Usage: python3 rainbow_email.py [top_content]
 """
 
 import sys
@@ -39,7 +39,7 @@ def get_sparklab_colors():
         '#d4a017'   # darker gold (readable yellow)
     ]
 
-def get_retro_styles():
+def get_rainbow_styles():
     """Generate CSS for email styling with SparkLabs colors."""
     return '''
 <style>
@@ -82,7 +82,7 @@ a:hover {
 </style>
 '''
 
-def process_markdown_to_retro_html(markdown_content, top_content=None):
+def process_markdown_to_rainbow_html(markdown_content, top_content=None):
     """Convert markdown to styled HTML."""
     # Replace {{top}} placeholder if provided
     if top_content:
@@ -152,7 +152,7 @@ def process_markdown_to_retro_html(markdown_content, top_content=None):
     html_content = md.convert(markdown_content)
     
     # Get components
-    styles = get_retro_styles()
+    styles = get_rainbow_styles()
     colors = get_sparklab_colors()
     
     # Track last used color to avoid repetition
@@ -238,7 +238,7 @@ def copy_to_clipboard(html_content):
         process.communicate(input=html_content)
         
         if process.returncode == 0:
-            print("✓ Retro email copied to clipboard!")
+            print("✓ Rainbow email copied to clipboard!")
             print("✓ Paste into your email client (Ctrl+V)")
         else:
             print("✗ Failed to copy to clipboard")
@@ -253,7 +253,7 @@ def copy_to_clipboard(html_content):
     return True
 
 def main():
-    parser = argparse.ArgumentParser(description='Generate retro computer-styled email from markdown')
+    parser = argparse.ArgumentParser(description='Generate rainbow computer-styled email from markdown')
     parser.add_argument('top', nargs='?', help='Optional top content (supports markdown formatting)')
     parser.add_argument('--save', '-s', help='Save HTML to file instead of copying to clipboard')
     parser.add_argument('--preview', '-p', action='store_true', help='Also save preview.html for browser testing')
@@ -271,8 +271,8 @@ def main():
     with open(md_file, 'r', encoding='utf-8') as f:
         markdown_content = f.read()
     
-    # Generate retro HTML
-    html_content = process_markdown_to_retro_html(markdown_content, args.top)
+    # Generate rainbow HTML
+    html_content = process_markdown_to_rainbow_html(markdown_content, args.top)
     
     # Handle output
     if args.save:
@@ -291,9 +291,9 @@ def main():
         print("✓ Preview saved as preview.html")
     
     if args.top:
-        print(f"🎮 Retro email generated with top content: {args.top[:30]}{'...' if len(args.top) > 30 else ''}")
+        print(f"🌈 Rainbow email generated with top content: {args.top[:30]}{'...' if len(args.top) > 30 else ''}")
     else:
-        print("🎮 Retro email generated")
+        print("🌈 Rainbow email generated")
     return 0
 
 if __name__ == '__main__':

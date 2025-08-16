@@ -1,6 +1,6 @@
-# Retro Email Generator
+# Rainbow Email Generator
 
-Two Python scripts for creating colorful, retro computer-styled HTML emails from Markdown content.
+Two Python scripts for creating colorful, rainbow computer-styled HTML emails from Markdown content.
 Markdown is converted to colorful HTML for insertion into eMails.
 As each eMail is created, you can add a personalized message.
 
@@ -19,7 +19,7 @@ sudo apt install xdotool       # For batch email automation (optional)
 ### Check Email Clients
 For batch processing, install **Thunderbird**.
 
-## Tool 1: Single Email (`retro_email.py`)
+## Tool 1: Single Email (`rainbow_email.py`)
 
 ### Step-by-Step Instructions
 
@@ -29,7 +29,7 @@ For batch processing, install **Thunderbird**.
 
 2. **Basic generation**
    ```bash
-   python3 retro_email.py
+   python3 rainbow_email.py
    ```
    - Converts `email-input.md` to colorful HTML
    - Copies HTML to clipboard automatically
@@ -37,25 +37,25 @@ For batch processing, install **Thunderbird**.
 
 3. **With personalized top content**
    ```bash
-   python3 retro_email.py "Hi **Sarah**! Hope you're *doing well*."
+   python3 rainbow_email.py "Hi **Sarah**! Hope you're *doing well*."
    ```
    - Replaces `{{top}}` with your personalized message
    - Supports **bold**, *italic*, and [links](url)
 
 4. **Generate preview file**
    ```bash
-   python3 retro_email.py --preview
+   python3 rainbow_email.py --preview
    ```
    - Creates `preview.html` to view in browser
    - Also copies to clipboard
 
 5. **Save to file**
    ```bash
-   python3 retro_email.py "Hello!" --save my_email.html
+   python3 rainbow_email.py "Hello!" --save my_email.html
    ```
    - Saves HTML to specified file instead of clipboard
 
-## Tool 2: Batch Processing (`batch_retro_email.py`)
+## Tool 2: Batch Processing (`batch_rainbow_email.py`)
 
 ### Step-by-Step Instructions
 
@@ -73,7 +73,7 @@ For batch processing, install **Thunderbird**.
 
 3. **Run batch processor**
    ```bash
-   python3 batch_retro_email.py "Subject Line" recipients.txt
+   python3 batch_rainbow_email.py "Subject Line" recipients.txt
    ```
 
 4. **For each recipient, the script will:**
@@ -89,10 +89,10 @@ For batch processing, install **Thunderbird**.
 5. **Options:**
    ```bash
    # Create drafts (default)
-   python3 batch_retro_email.py "Monthly Update" recipients.txt --drafts
+   python3 batch_rainbow_email.py "Monthly Update" recipients.txt --drafts
    
    # Try to send directly
-   python3 batch_retro_email.py "Newsletter" recipients.txt --send
+   python3 batch_rainbow_email.py "Newsletter" recipients.txt --send
    ```
 
 ## Example Files

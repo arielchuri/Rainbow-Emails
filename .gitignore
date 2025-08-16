@@ -1,0 +1,11 @@
+# Python
+__pycache__/
+*.pyc
+
+# Private email content
+email-input.md
+recipients_*.txt
+!recipients_example.txt
+
+# Generated files
+preview.html

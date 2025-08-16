@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """
-Batch Retro Email Generator
+Batch Rainbow Email Generator
 Processes multiple recipients from a text file, prompts for personalized content,
 and creates email drafts or sends emails.
 
-Usage: python3 batch_retro_email.py "Subject Line" recipients.txt [--send|--drafts]
+Usage: python3 batch_rainbow_email.py "Subject Line" recipients.txt [--send|--drafts]
 """
 
 import sys
@@ -14,7 +14,7 @@ import webbrowser
 from pathlib import Path
 import argparse
 from urllib.parse import quote
-from retro_email import process_markdown_to_retro_html
+from rainbow_email import process_markdown_to_rainbow_html
 
 def read_recipients(file_path):
     """Read email addresses from text file (one per line)."""
@@ -144,7 +144,7 @@ def send_email_betterbird(recipient, subject, html_content):
         create_email_draft(recipient, html_content, subject)
 
 def main():
-    parser = argparse.ArgumentParser(description='Generate batch retro emails from recipient list')
+    parser = argparse.ArgumentParser(description='Generate batch rainbow emails from recipient list')
     parser.add_argument('subject', help='Email subject line')
     parser.add_argument('recipients_file', help='Text file with email addresses (one per line)')
     parser.add_argument('--send', action='store_true', help='Try to send emails directly via email client')
@@ -176,7 +176,7 @@ def main():
         return 1
     
     print(f"📋 Found {len(recipients)} recipients")
-    print("🎮 Starting batch retro email generation...")
+    print("🌈 Starting batch rainbow email generation...")
     
     # Read base email content
     with open(email_input, 'r', encoding='utf-8') as f:
@@ -193,7 +193,7 @@ def main():
         personalized_content = get_personalized_content(recipient)
         
         # Generate HTML
-        html_content = process_markdown_to_retro_html(base_content, personalized_content)
+        html_content = process_markdown_to_rainbow_html(base_content, personalized_content)
         
         # Copy to clipboard
         if copy_html_to_clipboard(html_content):

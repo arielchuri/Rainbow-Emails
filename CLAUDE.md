@@ -4,60 +4,75 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Repository Overview
 
-This is a retro computer-styled email generation system that converts Markdown content from `2025/mynews_*.md` files into HTML emails with colorful retro computer aesthetics. The generated HTML is automatically copied to the clipboard for pasting into email clients.
+This is a rainbow computer-styled email generation system that converts Markdown content from `email-input.md` into HTML emails with colorful rainbow computer aesthetics. The system includes both single email generation and batch processing for multiple recipients. The generated HTML is automatically copied to the clipboard for pasting into email clients.
 
 ## Core Commands
 
-### Generate Retro Email (Primary Workflow)
+### Generate Rainbow Email (Primary Workflow)
 ```bash
-python3 retro_email.py [top_content]
+python3 rainbow_email.py [top_content]
 ```
 
 **Quick Usage Examples:**
 ```bash
 # Basic usage - copy to clipboard (always uses ./email-input.md)
-python3 retro_email.py
+python3 rainbow_email.py
 
 # With top content (supports markdown formatting with rainbow colors)
-python3 retro_email.py "Hi **Sarah**! Hope you're *doing well*."
+python3 rainbow_email.py "Hi **Sarah**! Hope you're *doing well*."
 
 # Generate with preview file for testing
-python3 retro_email.py --preview
+python3 rainbow_email.py --preview
 
 # Save to file instead of clipboard
-python3 retro_email.py "**Update** from [SparkLabs](https://example.com)" --save output.html
+python3 rainbow_email.py "**Update** from [SparkLabs](https://example.com)" --save output.html
 ```
 
-### Legacy Newsletter System (Deprecated)
+### Batch Rainbow Email Processing
 ```bash
-python3 generate_newsletter.py <markdown_file> [-t template.html] [-c constants.md] [-o output.html]
+python3 batch_rainbow_email.py "Subject Line" recipients.txt [--send|--drafts]
+```
+
+**Quick Usage Examples:**
+```bash
+# Create email drafts (default)
+python3 batch_rainbow_email.py "Monthly Update" recipients.txt
+
+# Try to send emails directly via Thunderbird
+python3 batch_rainbow_email.py "Newsletter" recipients.txt --send
 ```
 
 ### Dependencies
 ```bash
 pip install markdown
 sudo apt install wl-clipboard  # For clipboard functionality
+sudo apt install xdotool       # For batch email automation (optional)
 ```
+
+**Email Clients for Batch Processing:**
+- Betterbird (preferred) or Thunderbird for automated email sending
 
 ## Architecture & Structure
 
 ### Core Components
 
-1. **Retro Email Generator (`retro_email.py`)**
+1. **Rainbow Email Generator (`rainbow_email.py`)**
    - Always uses `./email-input.md` as source file
-   - Converts Markdown to retro computer-styled HTML
+   - Converts Markdown to rainbow computer-styled HTML
    - Dynamically assigns random SparkLabs colors to elements
    - Optional top content with markdown formatting and rainbow colors
    - Automatically copies to clipboard via `wl-copy`
 
-2. **Legacy Newsletter System (Deprecated)**
-   - `generate_newsletter.py` - Full newsletter template system
-   - `template.html` - Master HTML template  
-   - `constants.md` - Global configuration defaults
+2. **Batch Rainbow Email Processor (`batch_rainbow_email.py`)**
+   - Processes multiple recipients from text file
+   - Prompts for personalized content per recipient
+   - Integrates with Thunderbird/Betterbird for automated sending
+   - Supports both draft creation and direct sending
+   - Auto-pastes HTML content using xdotool
 
 ### Key Features
 
-**Retro Computer Aesthetic**:
+**Rainbow Computer Aesthetic**:
 - Monospace fonts (Courier New, Monaco, Lucida Console)
 - Terminal/CRT styling with scan lines effect
 - Random SparkLabs colors for borders, text highlights, and links
@@ -80,22 +95,32 @@ sudo apt install wl-clipboard  # For clipboard functionality
 
 ```
 /
-├── retro_email.py          # Main retro email generator
-├── email-input.md         # Fixed source file (always used)
-├── preview.html           # Generated preview (optional)
-└── [DEPRECATED]/          
+├── rainbow_email.py          # Main rainbow email generator
+├── batch_rainbow_email.py    # Batch processing for multiple recipients
+├── email-input.md           # Fixed source file (always used)
+├── preview.html             # Generated preview (optional)
+├── recipients_*.txt         # Email recipient lists (excluded from git)
+├── recipients_example.txt   # Example recipient file format
+└── archive/                 # Deprecated legacy files
     ├── generate_newsletter.py
     ├── template.html
-    ├── constants.md
-    └── 2025/mynews_*.md   # Old email content files
+    └── constants.md
 ```
 
 ## Content Creation Workflow
 
+### Single Email Generation
 1. **Edit Source File**: Write content in `./email-input.md`
 2. **Use Top Placeholder**: Include `{{top}}` where top content should appear (optional)
-3. **Generate Email**: Run `python3 retro_email.py [top_content]`
+3. **Generate Email**: Run `python3 rainbow_email.py [top_content]`
 4. **Paste into Email**: Content is copied to clipboard, paste directly (Ctrl+V)
+
+### Batch Email Processing
+1. **Create Recipient List**: Make `recipients.txt` with one email per line
+2. **Prepare Base Content**: Write template in `./email-input.md` with `{{top}}` placeholder
+3. **Run Batch Processor**: `python3 batch_rainbow_email.py "Subject" recipients.txt`
+4. **Personalize Each Email**: Script prompts for personalized content per recipient
+5. **Email Client Integration**: Automatically opens email client and pastes HTML content
 
 ## Markdown Content Structure
 
@@ -119,6 +144,6 @@ Ariel Churi
 ```
 
 **Top Content Examples:**
-- `python3 retro_email.py "Hi **Sarah**!"`
-- `python3 retro_email.py "**Update** from [SparkLabs](https://example.com)"`
-- `python3 retro_email.py "*Quick note* - hope you're doing well!"`
+- `python3 rainbow_email.py "Hi **Sarah**!"`
+- `python3 rainbow_email.py "**Update** from [SparkLabs](https://example.com)"`
+- `python3 rainbow_email.py "*Quick note* - hope you're doing well!"`
