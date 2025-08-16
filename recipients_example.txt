@@ -1,0 +1,3 @@
+sarah@example.com
+john.doe@company.org
+alice.smith@startup.io
